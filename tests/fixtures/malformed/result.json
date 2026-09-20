@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0.0",
+  "session": {"id": "synthetic-malformed"},
+  "review": {"status": "approved_by_participant"}
+}

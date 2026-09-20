@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "skill_version": "1.0.0",
+  "session": {"id": "synthetic-draft", "date": "2026-01-03", "language": "zh-CN", "question_count": 8, "duration_target_minutes": 20},
+  "participant": {"identity_mode": "withheld", "name": null, "role": "Example role", "team": "Example team"},
+  "workflow": {"name": "Draft workflow", "scope": {"start": "input", "end": "output", "in_scope": [], "out_of_scope": []}, "trigger": "input arrives", "inputs": ["input"], "outputs": ["output"], "downstream_decisions": ["review"], "evidence_ids": ["E001"]},
+  "as_is_steps": [{"step_id": "S01", "actor": "Example role", "action": "Review", "system": "Example system", "input": "input", "output": "output", "time": "unknown", "wait": "unknown", "gate": "unknown", "evidence_ids": ["E001"]}],
+  "roles": [],
+  "systems": [],
+  "data_sources": [],
+  "business_rules": [],
+  "exceptions": [],
+  "pain_points": [],
+  "root_causes": [],
+  "baseline_metrics": [],
+  "to_be": {"desired_outcome": "Needs confirmation", "target_flow": [], "success_signals": [], "evidence_ids": ["E002"]},
+  "opportunities": [],
+  "human_gates": [],
+  "evidence": [
+    {"id": "E001", "claim": "Partial current flow", "status": "Reported", "source": "Q03", "notes": "Incomplete"},
+    {"id": "E002", "claim": "Desired outcome", "status": "Open", "source": "Q08", "notes": "Not confirmed"}
+  ],
+  "material_requests": [],
+  "open_questions": [{"description": "Participant review is pending", "evidence_ids": ["E002"]}],
+  "review": {"status": "draft", "reviewed_at": null, "participant_corrections": []}
+}

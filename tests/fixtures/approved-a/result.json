@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "skill_version": "1.0.0",
+  "session": {"id": "synthetic-a", "date": "2026-01-01", "language": "zh-CN", "question_count": 10, "duration_target_minutes": 20},
+  "participant": {"identity_mode": "withheld", "name": null, "role": "Operations analyst", "team": "Example team"},
+  "workflow": {"name": "Weekly request intake", "scope": {"start": "request received", "end": "validated output delivered", "in_scope": ["triage", "validation"], "out_of_scope": ["production deployment"]}, "trigger": "new request", "inputs": ["request form"], "outputs": ["validated result"], "downstream_decisions": ["weekly planning"], "evidence_ids": ["E001"]},
+  "as_is_steps": [{"step_id": "S01", "actor": "Analyst", "action": "Review request", "system": "Ticket tool", "input": "Request form", "output": "Triage decision", "time": "20 minutes", "wait": "0-2 days", "gate": "Owner confirmation", "evidence_ids": ["E001", "E002"]}],
+  "roles": [{"description": "Analyst performs triage", "evidence_ids": ["E001"]}],
+  "systems": [{"description": "Ticket tool stores requests", "evidence_ids": ["E001"]}],
+  "data_sources": [{"description": "Request form", "evidence_ids": ["E001"]}],
+  "business_rules": [{"description": "Incomplete requests return to requester", "evidence_ids": ["E002"]}],
+  "exceptions": [{"description": "Urgent requests bypass normal queue with Owner approval", "evidence_ids": ["E003"]}],
+  "pain_points": [{"description": "Waiting for clarification delays delivery", "evidence_ids": ["E002"]}],
+  "root_causes": [{"description": "Required request fields are not enforced", "evidence_ids": ["E002"]}],
+  "baseline_metrics": [{"description": "Five to ten requests per week", "evidence_ids": ["E004"]}],
+  "to_be": {"desired_outcome": "Detect incomplete requests at intake", "target_flow": ["submit", "validate", "triage", "confirm"], "success_signals": ["fewer clarification loops"], "evidence_ids": ["E005"]},
+  "opportunities": [{"type": "rule-automation", "description": "Validate required fields before triage", "evidence_ids": ["E002", "E005"]}],
+  "human_gates": [{"description": "Owner approves urgent exceptions", "evidence_ids": ["E003"]}],
+  "evidence": [
+    {"id": "E001", "claim": "Current intake flow", "status": "Reported", "source": "Q03", "notes": "Recent example"},
+    {"id": "E002", "claim": "Missing fields cause clarification", "status": "Reported", "source": "Q06", "notes": "Normal failure path"},
+    {"id": "E003", "claim": "Operations Owner approves urgent exceptions", "status": "Reported", "source": "Q07", "notes": "Owner account A"},
+    {"id": "E004", "claim": "Weekly volume range", "status": "Estimated", "source": "Q08", "notes": "No system measure"},
+    {"id": "E005", "claim": "Desired intake validation", "status": "Reported", "source": "Q10", "notes": "To-Be"}
+  ],
+  "material_requests": [{"suggested_filename": "sample_request_form_redacted.pdf", "purpose": "Verify required fields", "likely_owner": "Operations Owner", "sensitivity_note": "Remove names and business values", "evidence_ids": ["E002"]}],
+  "open_questions": [{"description": "Actual clarification rate", "evidence_ids": ["E004"]}],
+  "review": {"status": "approved_by_participant", "reviewed_at": "2026-01-01T10:20:00+08:00", "participant_corrections": []}
+}

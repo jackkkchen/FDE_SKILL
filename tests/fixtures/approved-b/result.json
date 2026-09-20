@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "skill_version": "1.0.0",
+  "session": {"id": "synthetic-b", "date": "2026-01-02", "language": "zh-CN", "question_count": 9, "duration_target_minutes": 20},
+  "participant": {"identity_mode": "alias", "name": "Example B", "role": "Request coordinator", "team": "Example team"},
+  "workflow": {"name": "Weekly intake and delivery", "scope": {"start": "request received", "end": "validated output delivered", "in_scope": ["triage", "validation"], "out_of_scope": ["production deployment"]}, "trigger": "new request", "inputs": ["request form"], "outputs": ["validated result"], "downstream_decisions": ["weekly planning"], "evidence_ids": ["E001"]},
+  "as_is_steps": [{"step_id": "S01", "actor": "Coordinator", "action": "Review request", "system": "Ticket tool", "input": "Request form", "output": "Triage decision", "time": "15-30 minutes", "wait": "1-3 days", "gate": "Requester confirmation", "evidence_ids": ["E001", "E002"]}],
+  "roles": [{"description": "Coordinator performs triage", "evidence_ids": ["E001"]}],
+  "systems": [{"description": "Ticket tool stores requests", "evidence_ids": ["E001"]}],
+  "data_sources": [{"description": "Request form", "evidence_ids": ["E001"]}],
+  "business_rules": [{"description": "Incomplete requests return to requester", "evidence_ids": ["E002"]}],
+  "exceptions": [{"description": "Urgent requests require requester manager approval", "evidence_ids": ["E003"]}],
+  "pain_points": [{"description": "Waiting for clarification delays delivery", "evidence_ids": ["E002"]}],
+  "root_causes": [{"description": "Request definitions vary by requester", "evidence_ids": ["E002"]}],
+  "baseline_metrics": [{"description": "Approximately eight requests per week", "evidence_ids": ["E004"]}],
+  "to_be": {"desired_outcome": "Clarify requests before assignment", "target_flow": ["submit", "clarify", "triage", "confirm"], "success_signals": ["shorter waiting time"], "evidence_ids": ["E005"]},
+  "opportunities": [{"type": "process-governance", "description": "Define request Owner and mandatory intake fields", "evidence_ids": ["E002", "E005"]}],
+  "human_gates": [{"description": "Requester manager approves urgent exceptions", "evidence_ids": ["E003"]}],
+  "evidence": [
+    {"id": "E001", "claim": "Current intake flow", "status": "Reported", "source": "Q03", "notes": "Recent example"},
+    {"id": "E002", "claim": "Clarification delay", "status": "Reported", "source": "Q05", "notes": "Failure path"},
+    {"id": "E003", "claim": "Requester manager approves urgent exceptions", "status": "Contradicted", "source": "Q07", "notes": "Conflicts with another session"},
+    {"id": "E004", "claim": "Weekly volume", "status": "Estimated", "source": "Q08", "notes": "Approximate"},
+    {"id": "E005", "claim": "Desired early clarification", "status": "Reported", "source": "Q09", "notes": "To-Be"}
+  ],
+  "material_requests": [{"suggested_filename": "request_policy_redacted.pdf", "purpose": "Resolve approval Owner", "likely_owner": "Process Owner", "sensitivity_note": "Submit only approved policy excerpt", "evidence_ids": ["E003"]}],
+  "open_questions": [{"description": "Final Owner for urgent exceptions", "evidence_ids": ["E003"]}],
+  "review": {"status": "approved_by_participant", "reviewed_at": "2026-01-02T11:15:00+08:00", "participant_corrections": ["Clarified that the requester manager approves urgent work"]}
+}

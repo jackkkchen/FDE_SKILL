@@ -1,0 +1,13 @@
+# Local interview evidence. Never commit these directories.
+/local-output/
+/employee-submissions/
+/local-portfolio/
+
+# Locally packaged evidence bundles.
+/*-evidence.zip
+/*-evidence.tar.gz
+
+# Common local artifacts.
+.DS_Store
+Thumbs.db
+*.log
