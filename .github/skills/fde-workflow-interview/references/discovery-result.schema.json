@@ -55,7 +55,7 @@
         "date": { "type": "string", "minLength": 1 },
         "language": { "type": "string", "minLength": 1 },
         "question_count": { "type": "integer", "minimum": 0 },
-        "duration_target_minutes": { "type": "integer", "const": 20 }
+        "duration_target_minutes": { "type": "integer", "minimum": 5, "maximum": 20 }
       },
       "additionalProperties": false
     },

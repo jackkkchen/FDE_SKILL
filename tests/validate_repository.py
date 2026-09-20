@@ -75,6 +75,14 @@ def main() -> None:
     schema_path = SKILLS[0] / "references/discovery-result.schema.json"
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
     require(schema["properties"]["schema_version"]["const"] == "1.0.0", "schema version mismatch")
+    duration_rule = schema["properties"]["session"]["properties"]["duration_target_minutes"]
+    require(duration_rule.get("minimum", 0) <= 10 <= duration_rule.get("maximum", 10), "10-minute target is not schema-valid")
+
+    interview_text = (SKILLS[0] / "SKILL.md").read_text(encoding="utf-8")
+    require("never exceed 8" in interview_text, "interview question cap is missing")
+    require("only says they want to invoke or try this Skill" in interview_text, "invocation-only opening is missing")
+    require("回答提示（可选）" in interview_text, "short answer-tip guidance is missing")
+    require("security/compliance" in interview_text, "enterprise control guidance is missing")
 
     check_fixture(ROOT / "tests/fixtures/approved-a/result.json", "approved_by_participant")
     check_fixture(ROOT / "tests/fixtures/approved-b/result.json", "approved_by_participant")

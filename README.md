@@ -2,7 +2,7 @@
 
 一套面向 GitHub Copilot Agent Mode 的自助式 FDE Workflow Discovery 工具。
 
-- `fde-workflow-interview`：员工用约 15–20 分钟梳理一条真实工作流，生成 As-Is、痛点/根因、To-Be 和可追溯证据包。
+- `fde-workflow-interview`：员工用不超过 8 个主问题、通常约 10 分钟梳理一条真实工作流，生成 As-Is、痛点/根因、To-Be 和可追溯证据包。
 - `fde-workflow-prioritization`：FDE Lead 汇总员工已审阅的证据包，生成价值 × 可行性矩阵和领导讨论材料。
 
 This repository contains two GitHub Copilot Agent Skills for structured workflow discovery and evidence-based prioritization.
@@ -34,6 +34,8 @@ code .
 
 如果 slash command 没有出现，打开 Copilot 的 Skills/Customizations 配置，确认当前工作区已启用 Agent Skills，并重新加载 VS Code 窗口。
 
+第一次只输入“我要调用这个 Skill”也可以。Skill 会先简要说明用途、8 问以内的流程和材料边界，再询问岗位、团队、待梳理工作及姓名偏好；每个问题可附一行很短的可选回答提示。
+
 ## 本地输出
 
 以下目录已被 Git 忽略，不会出现在普通提交中：
@@ -60,8 +62,9 @@ local-portfolio/       汇总与优先级结果
 2. 先还原问题，再讨论 AI。
 3. 区分事实、估算、假设、待确认和冲突。
 4. 结论必须引用 Evidence ID。
-5. 20 分钟是目标时长；信息不足进入 Open Questions，不无限追问。
-6. 优先级结果是讨论输入，不替代业务、Security、Compliance 或管理层决策。
+5. 默认约 10 分钟且不超过 8 个主问题；信息不足进入 Open Questions，不追加第 9 问。
+6. 访谈检查部门 Owner、权威数据源、审批、Human Gate、权限、安全/合规、变更留痕和异常升级，但不宣称完成正式合规认证。
+7. 优先级结果是讨论输入，不替代业务、Security、Compliance 或管理层决策。
 
 ## Repository contents
 

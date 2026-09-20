@@ -6,7 +6,7 @@ Create exactly these files under `local-output/<session-id>/`.
 
 Include:
 
-- session ID, date/time, target duration, language, question count;
+- session ID, date/time, 10-minute default target, language, question count (maximum 8);
 - participant identity mode, optional name/alias, required role and team;
 - sequential `Q01`, `A01`, `Q02`, `A02` entries;
 - playback, participant corrections, and final review response.
@@ -50,11 +50,15 @@ Use these sections:
 
 Add evidence citations such as `[E003, E007]` after every claim. A Mermaid flow is optional; the workflow table is required.
 
+Use sections 5, 8, and 10 to capture enterprise/department fit: Owners, authoritative sources, approvals and Human Gates, access/privacy/security/compliance constraints, change traceability or rollback, escalation/SLA, and every unresolved control as `Open`.
+
 ## 4. `result.json`
 
 Follow [the JSON Schema](discovery-result.schema.json). Use `null` or empty arrays for unknown optional values. Never create a plausible value to fill a gap.
 
 Required claim-bearing objects use `evidence_ids`. Opportunities must use one of `process-governance`, `rule-automation`, `data-product`, or `ai-assisted`.
+
+Represent enterprise controls in the existing `roles`, `systems`, `business_rules`, `human_gates`, `material_requests`, and `open_questions` fields. Do not invent compliance approval or add unversioned schema fields.
 
 ## 5. `submission-checklist.md`
 
@@ -70,3 +74,5 @@ Include:
 ## Review transition
 
 Initial status is `draft`. Change to `approved_by_participant` only after an explicit confirmation. Record `reviewed_at` and all corrections. Approval means “accurate representation for discovery,” not business, compliance, or implementation approval.
+
+For new packages created by this revision, use `skill_version: 1.1.0` and `duration_target_minutes: 10`. Older valid packages remain readable.

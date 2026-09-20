@@ -23,6 +23,9 @@ The exact `quick_validate.py` path may differ outside Codex; VS Code discovery r
 5. Participant proposes an AI solution immediately: park it and return to the workflow and root cause.
 6. Participant provides sensitive detail: stop collecting it and add a generalized material request.
 7. Question budget is reached: produce a draft and convert gaps into Open Questions.
+8. Participant says only “我要调用这个 Skill”: explain the purpose and short flow first, then ask one opening intake question.
+9. Every completed short interview uses no more than 8 main questions; optional answer tips stay brief and do not become evidence.
+10. Department controls are unknown: record Owner, authoritative source, approval, access/security/compliance, rollback, and SLA gaps as Open rather than guessing.
 
 ## Manual prioritization scenarios
 

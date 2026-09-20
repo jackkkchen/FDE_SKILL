@@ -25,18 +25,26 @@ Stop when the information supports the next decision; do not wait until every de
 - Automatable steps and Human Gates are distinguished.
 - A measurable or observable success signal exists.
 
+## Enterprise and department fit gate
+
+- Workflow Owner and Data/System Owner are identified or explicitly `Open`.
+- The authoritative data source or business-rule owner is identified or explicitly `Open`.
+- Required approval and Human Gates are preserved.
+- Relevant access, privacy, security, compliance, change-traceability/rollback, and escalation/SLA constraints are captured or explicitly `Open`.
+- The output does not claim formal compliance or recommend bypassing an existing control.
+
 ## Handoff gate
 
-- Workflow Owner is identified or explicitly Open.
-- Data/System Owner is identified or explicitly Open.
 - Open Questions and requested supporting materials are listed.
 - Participant reviewed the playback; package remains `draft` until explicit approval.
 
 ## Stop behavior
 
-If the question budget is reached before all gates pass:
+If the 8-question limit is reached before all gates pass:
 
 1. Generate a draft package.
 2. State which gates are incomplete.
 3. Convert each missing item into a precise Open Question or material request.
 4. Do not extend the interview unless the participant explicitly asks to continue.
+
+If the participant asks to continue, finish the short package first and offer a separately labeled follow-up session; never add a ninth main question to the same interview.

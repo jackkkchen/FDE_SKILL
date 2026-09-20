@@ -1,11 +1,11 @@
 ---
 name: fde-workflow-interview
-description: Run a time-boxed FDE discovery interview that turns an employee's concrete work into an evidence-linked As-Is workflow, root causes, To-Be workflow, and a locally saved review package. Use when someone wants to document or improve a work process. Do not use it to inspect, copy, upload, or analyze business attachments or raw data.
+description: Run a concise FDE discovery interview with no more than 8 main questions, turning an employee's concrete work into an evidence-linked As-Is, root causes, To-Be, and local review package. Use when someone wants to document or improve a work process. Do not use it to inspect, copy, upload, or analyze business attachments or raw data.
 ---
 
 # FDE Workflow Interview
 
-Help one participant describe one real workflow in 15–20 minutes. Produce a traceable local evidence package; do not solve the workflow before understanding it.
+Help one participant describe one real workflow in about 10 minutes using no more than 8 main questions. Produce a traceable local evidence package; do not solve the workflow before understanding it.
 
 ## Safety and boundaries
 
@@ -25,7 +25,16 @@ Read:
 
 Match the participant's language; default to concise Chinese when they use Chinese.
 
-Start by explaining the purpose and boundaries in no more than four sentences. Ask for role, team, the workflow/work type, and their identity preference: real name, alias, or withheld. Role and team are required; a real name is optional.
+If the participant only says they want to invoke or try this Skill, first give a brief orientation in no more than four sentences:
+
+- it uses at most 8 main questions, usually about 10 minutes;
+- it reconstructs one recent workflow, separates facts from assumptions, and produces a local evidence package for review;
+- it checks department roles, approvals, data ownership, Human Gates, and security/compliance constraints, but does not certify compliance;
+- the sequence is scope → As-Is → impact/root cause → To-Be → participant review.
+
+Then ask one opening intake question covering role, team, the workflow/work type, and identity preference: real name, alias, or withheld. Role and team are required; a real name is optional. If some fields were already provided, ask only for what is missing.
+
+After a main question, add at most one short `回答提示（可选）` line when an example would help. Use generic answer shapes, not suggested facts, and never treat the tip as evidence.
 
 Create `local-output/<session-id>/` after the participant answers the opening question. Use `YYYYMMDD-HHMM-<workflow-slug>` for the session ID. Keep all generated files there.
 
@@ -34,13 +43,14 @@ Create `local-output/<session-id>/` after the participant answers the opening qu
 1. Select one mode:
    - **Validation mode** when the participant already has a clear As-Is and To-Be.
    - **Discovery mode** when the work is vague, broad, or described as miscellaneous.
-2. Ask one main question at a time. Use 8–12 main questions; around question 10, prefer closing gaps and documenting Open Questions over extending the interview.
-3. Anchor the discussion in the most recent concrete instance. Recover trigger, input, steps, actors, handoffs, systems, data, rules, exceptions, output, downstream decision, frequency, effort, waiting, rework, impact, root causes, Human Gates, and desired To-Be.
-4. Every 4–6 substantive questions, play back the current understanding and invite correction.
+2. Ask one main question at a time. Use 6–8 main questions and never exceed 8. Combine only tightly related details under one question theme. At the limit, convert gaps into Open Questions instead of continuing.
+3. Anchor the discussion in the most recent concrete instance. Recover the minimum decision-useful set: trigger and boundary; main steps and handoffs; actors and systems; data and authoritative source; rule/exception; frequency or effort; impact; direct cause/root cause/control gap; desired To-Be; Human Gates and success signal.
+4. After question 4 or 5, give a two- or three-line playback and invite correction without starting a separate questionnaire.
 5. If the participant jumps to a solution, record it as a candidate and return to the problem. Do not default to AI.
 6. Distinguish symptom, direct cause, root cause, and control gap. Do not treat data-quality issues as business misconduct.
 7. Accept ranges when exact metrics are unavailable and mark them `Estimated`.
 8. Record each substantive answer in `transcript.md` and update the evidence register as the interview progresses so an interrupted session remains recoverable.
+9. Check enterprise and department fit within the same 8-question budget: Workflow Owner, Data/System Owner, authoritative source, required approval, access/privacy/security/compliance constraints, change traceability or rollback, and escalation/SLA. Never recommend bypassing an existing control. Unknown requirements become `Open`.
 
 ## Close and write outputs
 
